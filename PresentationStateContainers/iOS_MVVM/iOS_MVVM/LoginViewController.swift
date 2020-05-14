@@ -9,19 +9,12 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    struct Props: Defaultable {
-        let login: ValidatableField<LoginValidator.Error>
-        let password: ValidatableField<PasswordValidator.Error>
-        let loginEnabled: Bool
-        let loginAction: Callback
-        
-        static var defaultValue = LoginViewController.Props(login: .defaultValue,
-                                                            password: .defaultValue,
-                                                            loginEnabled: false,
-                                                            loginAction: {})
+    var viewModel: LoginViewModel! {
+        didSet {
+            viewModel.propsDidChange = weakify(self, LoginViewController.render(props:))
+        }
     }
-    private var props: Props = Props.defaultValue
-    var retainedObject: Any?
+    private var props: LoginViewModel.Props = .defaultValue
     
     @IBOutlet private weak var loginField: UITextField!
     @IBOutlet private weak var loginErrorLabel: UILabel!
@@ -43,7 +36,7 @@ class LoginViewController: UIViewController {
         render()
     }
     
-    func render(props: Props) {
+    func render(props: LoginViewModel.Props) {
         self.props = props
         if isViewLoaded { render() }
     }

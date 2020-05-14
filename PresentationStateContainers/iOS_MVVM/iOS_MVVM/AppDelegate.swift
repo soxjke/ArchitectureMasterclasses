@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  iOS_MVVM
+//  iOS_MVP
 //
 //  Created by Petro Korienev on 5/14/20.
 //  Copyright © 2020 Petro Korienev. All rights reserved.
@@ -11,27 +11,42 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
+    var isStorybook: Bool = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        start(isStorybook: isStorybook)
+        
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    
+    func toggleStroybook() {
+        isStorybook = !isStorybook
+        start(isStorybook: isStorybook)
     }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    
+    private func start(isStorybook: Bool) {
+        window = UIWindow()
+        window?.rootViewController = isStorybook ? startStorybook() : startApp()
+        window?.makeKeyAndVisible()
     }
-
-
+    
+    private func startApp() -> UIViewController {
+        let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
+        loginViewController.viewModel = LoginViewModel()
+        return loginViewController
+    }
+    
+    private func startStorybook() -> UIViewController {
+        return UINavigationController(rootViewController: StorybookViewController(style: .grouped))
+    }
 }
 
+extension UIWindow {
+    override open func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            (UIApplication.shared.delegate as! AppDelegate).toggleStroybook()
+        }
+    }
+}

@@ -8,22 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		4B3D5DF7246D8F6700328B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3D5DF6246D8F6700328B02 /* AppDelegate.swift */; };
-		4B3D5DF9246D8F6700328B02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3D5DF8246D8F6700328B02 /* SceneDelegate.swift */; };
-		4B3D5DFB246D8F6700328B02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3D5DFA246D8F6700328B02 /* ViewController.swift */; };
 		4B3D5DFE246D8F6700328B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D5DFC246D8F6700328B02 /* Main.storyboard */; };
 		4B3D5E00246D8F6800328B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D5DFF246D8F6800328B02 /* Assets.xcassets */; };
 		4B3D5E03246D8F6800328B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D5E01246D8F6800328B02 /* LaunchScreen.storyboard */; };
+		4BC159B1246DDC4300075952 /* TypesAndFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159AA246DDC4200075952 /* TypesAndFunctions.swift */; };
+		4BC159B2246DDC4300075952 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159AB246DDC4200075952 /* Validator.swift */; };
+		4BC159B3246DDC4300075952 /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159AC246DDC4200075952 /* LoginValidator.swift */; };
+		4BC159B4246DDC4300075952 /* ValidatableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159AD246DDC4300075952 /* ValidatableField.swift */; };
+		4BC159B5246DDC4300075952 /* StorybookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159AE246DDC4300075952 /* StorybookViewController.swift */; };
+		4BC159B6246DDC4300075952 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159AF246DDC4300075952 /* LoginViewController.swift */; };
+		4BC159B7246DDC4300075952 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159B0246DDC4300075952 /* PasswordValidator.swift */; };
+		4BC159B9246DDC6400075952 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159B8246DDC6400075952 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4B3D5DF3246D8F6700328B02 /* iOS_MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3D5DF6246D8F6700328B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4B3D5DF8246D8F6700328B02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4B3D5DFA246D8F6700328B02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B3D5DFD246D8F6700328B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B3D5DFF246D8F6800328B02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B3D5E02246D8F6800328B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B3D5E04246D8F6800328B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BC159AA246DDC4200075952 /* TypesAndFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesAndFunctions.swift; sourceTree = "<group>"; };
+		4BC159AB246DDC4200075952 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		4BC159AC246DDC4200075952 /* LoginValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
+		4BC159AD246DDC4300075952 /* ValidatableField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatableField.swift; sourceTree = "<group>"; };
+		4BC159AE246DDC4300075952 /* StorybookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorybookViewController.swift; sourceTree = "<group>"; };
+		4BC159AF246DDC4300075952 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4BC159B0246DDC4300075952 /* PasswordValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
+		4BC159B8246DDC6400075952 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +68,15 @@
 		4B3D5DF5246D8F6700328B02 /* iOS_MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				4BC159AC246DDC4200075952 /* LoginValidator.swift */,
+				4BC159AF246DDC4300075952 /* LoginViewController.swift */,
+				4BC159B8246DDC6400075952 /* LoginViewModel.swift */,
+				4BC159B0246DDC4300075952 /* PasswordValidator.swift */,
+				4BC159AE246DDC4300075952 /* StorybookViewController.swift */,
+				4BC159AA246DDC4200075952 /* TypesAndFunctions.swift */,
+				4BC159AD246DDC4300075952 /* ValidatableField.swift */,
+				4BC159AB246DDC4200075952 /* Validator.swift */,
 				4B3D5DF6246D8F6700328B02 /* AppDelegate.swift */,
-				4B3D5DF8246D8F6700328B02 /* SceneDelegate.swift */,
-				4B3D5DFA246D8F6700328B02 /* ViewController.swift */,
 				4B3D5DFC246D8F6700328B02 /* Main.storyboard */,
 				4B3D5DFF246D8F6800328B02 /* Assets.xcassets */,
 				4B3D5E01246D8F6800328B02 /* LaunchScreen.storyboard */,
@@ -138,9 +156,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B3D5DFB246D8F6700328B02 /* ViewController.swift in Sources */,
+				4BC159B6246DDC4300075952 /* LoginViewController.swift in Sources */,
 				4B3D5DF7246D8F6700328B02 /* AppDelegate.swift in Sources */,
-				4B3D5DF9246D8F6700328B02 /* SceneDelegate.swift in Sources */,
+				4BC159B2246DDC4300075952 /* Validator.swift in Sources */,
+				4BC159B7246DDC4300075952 /* PasswordValidator.swift in Sources */,
+				4BC159B4246DDC4300075952 /* ValidatableField.swift in Sources */,
+				4BC159B5246DDC4300075952 /* StorybookViewController.swift in Sources */,
+				4BC159B3246DDC4300075952 /* LoginValidator.swift in Sources */,
+				4BC159B1246DDC4300075952 /* TypesAndFunctions.swift in Sources */,
+				4BC159B9246DDC6400075952 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
