@@ -12,18 +12,42 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var isStorybook: Bool = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
-        let loginPresenter = LoginPresenter(controller: loginViewController)
-        loginViewController.retainedObject = loginPresenter
         
-        window = UIWindow()
-        window?.rootViewController = loginViewController
-        window?.makeKeyAndVisible()
+        start(isStorybook: isStorybook)
         
         return true
     }
+    
+    func toggleStroybook() {
+        isStorybook = !isStorybook
+        start(isStorybook: isStorybook)
+    }
+    
+    private func start(isStorybook: Bool) {
+        window = UIWindow()
+        window?.rootViewController = isStorybook ? startStorybook() : startApp()
+        window?.makeKeyAndVisible()
+    }
+    
+    private func startApp() -> UIViewController {
+        let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
+        let loginPresenter = LoginPresenter(controller: loginViewController)
+        loginViewController.retainedObject = loginPresenter
+        return loginViewController
+    }
+    
+    private func startStorybook() -> UIViewController {
+        return UINavigationController(rootViewController: StorybookViewController(style: .grouped))
+    }
 }
 
+extension UIWindow {
+    override open func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            (UIApplication.shared.delegate as! AppDelegate).toggleStroybook()
+        }
+    }
+}
