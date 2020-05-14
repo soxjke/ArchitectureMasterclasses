@@ -10,21 +10,13 @@ import UIKit
 
 class LoginViewController: UIViewController {
     struct Props: Defaultable {
-        let login: String
-        let loginError: String?
-        let password: String
-        let passwordError: String?
-        let loginEditingChanged: ValueCallback<String?>
-        let passwordEditingChanged: ValueCallback<String?>
+        let login: ValidatableField<LoginValidator.Error>
+        let password: ValidatableField<PasswordValidator.Error>
         let loginEnabled: Bool
         let loginAction: Callback
         
-        static var defaultValue = LoginViewController.Props(login: "",
-                                                            loginError: nil,
-                                                            password: "",
-                                                            passwordError: nil,
-                                                            loginEditingChanged: { _ in },
-                                                            passwordEditingChanged: { _ in },
+        static var defaultValue = LoginViewController.Props(login: .defaultValue,
+                                                            password: .defaultValue,
                                                             loginEnabled: false,
                                                             loginAction: {})
     }
@@ -37,8 +29,14 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordErrorLabel: UILabel!
     @IBOutlet private weak var loginButton: UIButton!
     @IBAction func loginButtonDidPress(_ sender: UIButton) { props.loginAction() }
-    @IBAction func loginEditingChanged(_ sender: UITextField) { props.loginEditingChanged(loginField.text) }
-    @IBAction func passwordEditingChanged(_ sender: UITextField) { props.passwordEditingChanged(passwordField.text)  }
+    
+    @IBAction func loginEditingStarted(_ sender: UITextField) { props.login.startEditing?(loginField.text ?? "") }
+    @IBAction func passwordEditingStarted(_ sender: UITextField) { props.password.startEditing?(passwordField.text ?? "") }
+    @IBAction func loginEditingChanged(_ sender: UITextField) { props.login.changedEditing?(loginField.text ?? "") }
+    @IBAction func passwordEditingChanged(_ sender: UITextField) { props.password.changedEditing?(passwordField.text ?? "") }
+    @IBAction func loginEditingEnded(_ sender: UITextField) { props.login.endEditing?(loginField.text ?? "") }
+    @IBAction func passwordEditingEnded(_ sender: UITextField) { props.password.endEditing?(passwordField.text ?? "") }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,15 +55,38 @@ class LoginViewController: UIViewController {
     }
     
     private func renderLoginField() {
-        self.loginField.text = props.login
-        self.loginErrorLabel.text = props.loginError
-        self.loginErrorLabel.isHidden = props.loginError == nil
+        loginField.text = props.login.text
+        renderLoginErrorIfAny()
+    }
+    
+    private func renderLoginErrorIfAny() {
+        guard let error = props.login.error else {
+            loginErrorLabel.isHidden = true
+            return
+        }
+        loginErrorLabel.isHidden = false
+        switch error {
+        case .loginTooShort: loginErrorLabel.text = "Login should be 3 characters or more"
+        case .loginTooLong: loginErrorLabel.text = "Login should be 20 characters or less"
+        case .loginNonAscii: loginErrorLabel.text = "Login should containt only letters and numbers"
+        }
     }
     
     private func renderPasswordField() {
-        self.passwordField.text = props.password
-        self.passwordErrorLabel.text = props.passwordError
-        self.passwordErrorLabel.isHidden = props.passwordError == nil
+        passwordField.text = props.password.text
+        renderPasswordErrorIfAny()
+    }
+    
+    private func renderPasswordErrorIfAny() {
+        guard let error = props.password.error else {
+            passwordErrorLabel.isHidden = true
+            return
+        }
+        passwordErrorLabel.isHidden = false
+        switch error {
+        case .passwordTooShort: passwordErrorLabel.text = "Login should be 6 characters or more"
+        case .passwordShouldContainSpecialCharactes: passwordErrorLabel.text = "Password should contain special characters like !#$#@"
+        }
     }
     
     private func renderLoginButton() {

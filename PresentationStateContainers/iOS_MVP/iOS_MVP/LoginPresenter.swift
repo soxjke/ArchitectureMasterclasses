@@ -12,10 +12,10 @@ class LoginPresenter {
     typealias Props = LoginViewController.Props
     weak var controller: LoginViewController?
     
-    private var login: String?
-    private var loginError: String? = "Login should be 3 chars or more"
-    private var password: String?
-    private var passwordError: String? = "Password should be 6 chars or more"
+    private var login: ValidatableField<LoginValidator.Error> = .defaultValue
+    private var loginValidator = LoginValidator()
+    private var password: ValidatableField<PasswordValidator.Error> = .defaultValue
+    private var passwordValidator = PasswordValidator()
     
     init(controller: LoginViewController) {
         self.controller = controller
@@ -28,31 +28,33 @@ class LoginPresenter {
     
     private func makeProps() -> Props {
         return Props(
-            login: login ?? "",
-            loginError: loginError,
-            password: password ?? "",
-            passwordError: passwordError,
-            loginEditingChanged: self.loginChanged,
-            passwordEditingChanged: self.passwordChanged,
-            loginEnabled: loginError == nil && passwordError == nil,
+            login: makeLoginField(),
+            password: makePasswordField(),
+            loginEnabled: loginValidator.validate(string: login.text) == nil && passwordValidator.validate(string: password.text) == nil,
             loginAction: self.loginAction
         )
     }
     
-    private func loginChanged(_ string: String?) {
-        login = string
-        loginError = (string?.count ?? 0 < 3) ? "Login should be 3 chars or more" : nil
-        present()
+    private func makeLoginField() -> ValidatableField<LoginValidator.Error> {
+        return .init(error: login.error,
+                     text: login.text,
+                     startEditing: { _ in self.login.error = nil; self.present() },
+                     changedEditing: { text in self.login.text = text; self.present()  },
+                     endEditing: { text in self.login.error = self.loginValidator.validate(string: text); self.present()  }
+                )
     }
     
-    private func passwordChanged(_ string: String?) {
-        password = string
-        passwordError = (string?.count ?? 0 < 6) ? "Password should be 6 chars or more" : nil
-        present()
+    private func makePasswordField() -> ValidatableField<PasswordValidator.Error> {
+        return .init(error: password.error,
+                     text: password.text,
+                     startEditing: { _ in self.password.error = nil; self.present()  },
+                     changedEditing: { text in self.password.text = text; self.present()  },
+                     endEditing: { text in self.password.error = self.passwordValidator.validate(string: text); self.present()  }
+                )
     }
-    
+            
     private func loginAction() {
         // Call login method
-        print("LoginPresenter now will call login with:\n\(login ?? "<no login>")\n\(password ?? "<no password>")")
+        print("LoginPresenter now will call login with:\n\(login.text)\n\(password.text)")
     }
 }

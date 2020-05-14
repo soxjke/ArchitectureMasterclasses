@@ -21,6 +21,8 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="loginEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="ysw-WO-KV9"/>
+                                    <action selector="loginEditingEnded:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="lN2-LZ-H2P"/>
+                                    <action selector="loginEditingStarted:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="RaB-CX-olO"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jWe-Mm-YFN">
@@ -29,6 +31,8 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="passwordEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="gig-2J-AWF"/>
+                                    <action selector="passwordEditingEnded:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="1iS-lN-9x3"/>
+                                    <action selector="passwordEditingStarted:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="N9M-ft-Wg3"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7l-zK-36h">

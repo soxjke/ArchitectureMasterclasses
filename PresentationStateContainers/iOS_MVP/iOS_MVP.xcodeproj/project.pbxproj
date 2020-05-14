@@ -14,6 +14,10 @@
 		4B3D5DE3246D8F3200328B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D5DE1246D8F3200328B02 /* LaunchScreen.storyboard */; };
 		4BC1599D246D924900075952 /* TypesAndFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC1599C246D924900075952 /* TypesAndFunctions.swift */; };
 		4BC1599F246D945400075952 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC1599E246D945400075952 /* LoginPresenter.swift */; };
+		4BC159A1246DB81600075952 /* ValidatableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159A0246DB81600075952 /* ValidatableField.swift */; };
+		4BC159A3246DB91A00075952 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159A2246DB91A00075952 /* Validator.swift */; };
+		4BC159A5246DBB0A00075952 /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159A4246DBB0A00075952 /* LoginValidator.swift */; };
+		4BC159A7246DBB1800075952 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159A6246DBB1800075952 /* PasswordValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		4B3D5DE4246D8F3200328B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BC1599C246D924900075952 /* TypesAndFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesAndFunctions.swift; sourceTree = "<group>"; };
 		4BC1599E246D945400075952 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		4BC159A0246DB81600075952 /* ValidatableField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatableField.swift; sourceTree = "<group>"; };
+		4BC159A2246DB91A00075952 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		4BC159A4246DBB0A00075952 /* LoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
+		4BC159A6246DBB1800075952 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,10 @@
 			isa = PBXGroup;
 			children = (
 				4B3D5DD6246D8F2F00328B02 /* AppDelegate.swift */,
+				4BC159A0246DB81600075952 /* ValidatableField.swift */,
+				4BC159A2246DB91A00075952 /* Validator.swift */,
+				4BC159A4246DBB0A00075952 /* LoginValidator.swift */,
+				4BC159A6246DBB1800075952 /* PasswordValidator.swift */,
 				4B3D5DDA246D8F2F00328B02 /* LoginViewController.swift */,
 				4BC1599E246D945400075952 /* LoginPresenter.swift */,
 				4B3D5DDC246D8F2F00328B02 /* Main.storyboard */,
@@ -143,7 +155,11 @@
 			files = (
 				4BC1599F246D945400075952 /* LoginPresenter.swift in Sources */,
 				4BC1599D246D924900075952 /* TypesAndFunctions.swift in Sources */,
+				4BC159A1246DB81600075952 /* ValidatableField.swift in Sources */,
+				4BC159A7246DBB1800075952 /* PasswordValidator.swift in Sources */,
 				4B3D5DDB246D8F2F00328B02 /* LoginViewController.swift in Sources */,
+				4BC159A3246DB91A00075952 /* Validator.swift in Sources */,
+				4BC159A5246DBB0A00075952 /* LoginValidator.swift in Sources */,
 				4B3D5DD7246D8F2F00328B02 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
