@@ -10,9 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import com.soxjke.android_mvp.dummy.DummyContent
-import com.soxjke.android_mvp.dummy.DummyContent.DummyItem
-
 /**
  * A fragment representing a list of Items.
  * Activities containing this fragment MUST implement the
@@ -22,16 +19,14 @@ class StorybookFragment : Fragment() {
 
     // TODO: Customize parameters
     private var columnCount = 1
-
-    private var listener: OnListFragmentInteractionListener? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        arguments?.let {
-            columnCount = it.getInt(ARG_COLUMN_COUNT)
-        }
-    }
+    private val mValues = listOf<String>(
+        "default state",
+        "login error1",
+        "login error2",
+        "login error3",
+        "password error1",
+        "password error2"
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,54 +41,70 @@ class StorybookFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = StorybookFragmentRecyclerViewAdapter(DummyContent.ITEMS, listener)
+                adapter = StorybookFragmentRecyclerViewAdapter(mValues) {
+                    val fragment = LoginFragment()
+                    when (it) {
+                        0 -> {
+                            fragment.render(LoginFragment.Props(
+                                ValidatableField<LoginValidator.Error>(),
+                                ValidatableField<PasswordValidator.Error>(),
+                                true,
+                                {}
+                            ))
+                        }
+                        1 -> {
+                            fragment.render(LoginFragment.Props(
+                                ValidatableField<LoginValidator.Error>(LoginValidator.Error.LoginTooShort, "ab"),
+                                ValidatableField<PasswordValidator.Error>(null, "123456"),
+                                false,
+                                {}
+                            ))
+                        }
+                        2 -> {
+                            fragment.render(LoginFragment.Props(
+                                ValidatableField<LoginValidator.Error>(LoginValidator.Error.LoginTooLong, "abcdefabcdefabcdefabcdef"),
+                                ValidatableField<PasswordValidator.Error>(null, "123456"),
+                                false,
+                                {}
+                            ))
+                        }
+                        3 -> {
+                            fragment.render(LoginFragment.Props(
+                                ValidatableField<LoginValidator.Error>(LoginValidator.Error.LoginNonAscii, "вітаю"),
+                                ValidatableField<PasswordValidator.Error>(null, "123456"),
+                                true,
+                                {}
+                            ))
+                        }
+                        4 -> {
+                            fragment.render(LoginFragment.Props(
+                                ValidatableField<LoginValidator.Error>(null, "login"),
+                                ValidatableField<PasswordValidator.Error>(PasswordValidator.Error.PasswordTooShort, "12"),
+                                true,
+                                {}
+                            ))
+                        }
+                        5 -> {
+                            fragment.render(LoginFragment.Props(
+                                ValidatableField<LoginValidator.Error>(null, "login"),
+                                ValidatableField<PasswordValidator.Error>(PasswordValidator.Error.PasswordShouldContainSpecialCharactes, "123456"),
+                                true,
+                                {}
+                            ))
+                        }
+                    }
+                    requireActivity().supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.nav_host_placeholder, fragment)
+                        .addToBackStack(null)
+                        .commit()
+                }
             }
         }
         return view
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnListFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
-        }
-    }
-
     override fun onDetach() {
         super.onDetach()
-        listener = null
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson
-     * [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
-    interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onListFragmentInteraction(item: DummyItem?)
-    }
-
-    companion object {
-
-        // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
-
-        // TODO: Customize parameter initialization
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-            StorybookFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
-                }
-            }
     }
 }

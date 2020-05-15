@@ -6,6 +6,15 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     defaultConfig {
         applicationId "com.soxjke.android_mvp"
         minSdkVersion 23
@@ -35,6 +44,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.0-alpha06"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.0-alpha06"
+    implementation 'com.squareup:seismic:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

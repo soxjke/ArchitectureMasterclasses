@@ -5,11 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-
-
-import com.soxjke.android_mvp.StorybookFragment.OnListFragmentInteractionListener
-import com.soxjke.android_mvp.dummy.DummyContent.DummyItem
-
 import kotlinx.android.synthetic.main.fragment_storybook.view.*
 
 /**
@@ -18,18 +13,16 @@ import kotlinx.android.synthetic.main.fragment_storybook.view.*
  * TODO: Replace the implementation with code for your data type.
  */
 class StorybookFragmentRecyclerViewAdapter(
-    private val mValues: List<DummyItem>,
-    private val mListener: OnListFragmentInteractionListener?
+    private val mValues: List<String>,
+    private val mListener: (Int) -> Unit
 ) : RecyclerView.Adapter<StorybookFragmentRecyclerViewAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
 
     init {
         mOnClickListener = View.OnClickListener { v ->
-            val item = v.tag as DummyItem
-            // Notify the active callbacks interface (the activity, if the fragment is attached to
-            // one) that an item has been selected.
-            mListener?.onListFragmentInteraction(item)
+            val item = v.tag as Int
+            mListener(item)
         }
     }
 
@@ -41,11 +34,11 @@ class StorybookFragmentRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mValues[position]
-        holder.mIdView.text = item.id
-        holder.mContentView.text = item.content
+        holder.mIdView.text = position.toString()
+        holder.mContentView.text = item
 
         with(holder.mView) {
-            tag = item
+            tag = position
             setOnClickListener(mOnClickListener)
         }
     }
