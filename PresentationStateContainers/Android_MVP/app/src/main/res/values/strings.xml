@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Android_MVP</string>
+
+    <string name="login_field_placeholder">Login</string>
+    <string name="password_field_placeholder">Password</string>
+    <string name="login_button_title">Login</string>
+    <string name="login_too_short_error">Login should be 3 characters or more</string>
+    <string name="login_too_long_error">Login should be 20 characters or less</string>
+    <string name="login_non_ascii_error">Login should contain only letters and numbers</string>
+    <string name="password_too_short_error">Password should be 6 characters or more</string>
+    <string name="password_should_contain_special_characters_error">Password should contain special characters like !#$#@</string>
 </resources>

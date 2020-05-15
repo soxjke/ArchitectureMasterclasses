@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
         switch error {
         case .loginTooShort: loginErrorLabel.text = "Login should be 3 characters or more"
         case .loginTooLong: loginErrorLabel.text = "Login should be 20 characters or less"
-        case .loginNonAscii: loginErrorLabel.text = "Login should containt only letters and numbers"
+        case .loginNonAscii: loginErrorLabel.text = "Login should contain only letters and numbers"
         }
     }
     
