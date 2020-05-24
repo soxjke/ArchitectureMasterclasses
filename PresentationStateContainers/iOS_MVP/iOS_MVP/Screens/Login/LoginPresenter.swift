@@ -12,9 +12,9 @@ class LoginPresenter {
     typealias Props = LoginViewController.Props
     weak var controller: LoginViewController?
     
-    private var login: ValidatableField<LoginValidator.Error> = .defaultValue
+    private var login: LoginValidatableTextField.Props = .defaultValue
     private var loginValidator = LoginValidator()
-    private var password: ValidatableField<PasswordValidator.Error> = .defaultValue
+    private var password: PasswordValidatableTextField.Props = .defaultValue
     private var passwordValidator = PasswordValidator()
     
     init(controller: LoginViewController) {
@@ -30,12 +30,11 @@ class LoginPresenter {
         return Props(
             login: makeLoginField(),
             password: makePasswordField(),
-            loginEnabled: loginValidator.validate(string: login.text) == nil && passwordValidator.validate(string: password.text) == nil,
-            loginAction: weakify(self, LoginPresenter.loginAction)
+            action: makeAction()
         )
     }
     
-    private func makeLoginField() -> ValidatableField<LoginValidator.Error> {
+    private func makeLoginField() -> LoginValidatableTextField.Props {
         return .init(error: login.error,
                      text: login.text,
                      startEditing: weakify(self, LoginPresenter.loginStartEditing),
@@ -59,7 +58,7 @@ class LoginPresenter {
         present()
     }
     
-    private func makePasswordField() -> ValidatableField<PasswordValidator.Error> {
+    private func makePasswordField() -> PasswordValidatableTextField.Props {
         return .init(error: password.error,
                      text: password.text,
                      startEditing: weakify(self, LoginPresenter.passwordStartEditing),
@@ -81,6 +80,12 @@ class LoginPresenter {
     private func passwordEndEditing(_ text: String) {
         password.error = passwordValidator.validate(string: text);
         present()
+    }
+    
+    private func makeAction() -> ActionableButton.Props {
+        return .init(isEnabled: loginValidator.validate(string: login.text) == nil &&
+                                passwordValidator.validate(string: password.text) == nil,
+                     action: weakify(self, LoginPresenter.loginAction))
     }
             
     private func loginAction() {

@@ -12,9 +12,12 @@
 		4B3D5DDE246D8F2F00328B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D5DDC246D8F2F00328B02 /* Main.storyboard */; };
 		4B3D5DE0246D8F3200328B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D5DDF246D8F3200328B02 /* Assets.xcassets */; };
 		4B3D5DE3246D8F3200328B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D5DE1246D8F3200328B02 /* LaunchScreen.storyboard */; };
+		4B4513C8247AF7AD009EE471 /* ValidatableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4513C7247AF7AD009EE471 /* ValidatableTextField.swift */; };
+		4B4513CA247AF885009EE471 /* ActionableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4513C9247AF885009EE471 /* ActionableButton.swift */; };
+		4B4513CC247AF9D6009EE471 /* LoginValidatableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4513CB247AF9D6009EE471 /* LoginValidatableTextField.swift */; };
+		4B4513CE247AFA06009EE471 /* PasswordValidatableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4513CD247AFA06009EE471 /* PasswordValidatableTextField.swift */; };
 		4BC1599D246D924900075952 /* TypesAndFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC1599C246D924900075952 /* TypesAndFunctions.swift */; };
 		4BC1599F246D945400075952 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC1599E246D945400075952 /* LoginPresenter.swift */; };
-		4BC159A1246DB81600075952 /* ValidatableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159A0246DB81600075952 /* ValidatableField.swift */; };
 		4BC159A3246DB91A00075952 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159A2246DB91A00075952 /* Validator.swift */; };
 		4BC159A5246DBB0A00075952 /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159A4246DBB0A00075952 /* LoginValidator.swift */; };
 		4BC159A7246DBB1800075952 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC159A6246DBB1800075952 /* PasswordValidator.swift */; };
@@ -29,9 +32,12 @@
 		4B3D5DDF246D8F3200328B02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B3D5DE2246D8F3200328B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B3D5DE4246D8F3200328B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B4513C7247AF7AD009EE471 /* ValidatableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatableTextField.swift; sourceTree = "<group>"; };
+		4B4513C9247AF885009EE471 /* ActionableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionableButton.swift; sourceTree = "<group>"; };
+		4B4513CB247AF9D6009EE471 /* LoginValidatableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidatableTextField.swift; sourceTree = "<group>"; };
+		4B4513CD247AFA06009EE471 /* PasswordValidatableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidatableTextField.swift; sourceTree = "<group>"; };
 		4BC1599C246D924900075952 /* TypesAndFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesAndFunctions.swift; sourceTree = "<group>"; };
 		4BC1599E246D945400075952 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
-		4BC159A0246DB81600075952 /* ValidatableField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatableField.swift; sourceTree = "<group>"; };
 		4BC159A2246DB91A00075952 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		4BC159A4246DBB0A00075952 /* LoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
 		4BC159A6246DBB1800075952 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
@@ -70,12 +76,9 @@
 			children = (
 				4B3D5DD6246D8F2F00328B02 /* AppDelegate.swift */,
 				4BC159A8246DD19000075952 /* StorybookViewController.swift */,
-				4BC159A0246DB81600075952 /* ValidatableField.swift */,
-				4BC159A2246DB91A00075952 /* Validator.swift */,
-				4BC159A4246DBB0A00075952 /* LoginValidator.swift */,
-				4BC159A6246DBB1800075952 /* PasswordValidator.swift */,
-				4B3D5DDA246D8F2F00328B02 /* LoginViewController.swift */,
-				4BC1599E246D945400075952 /* LoginPresenter.swift */,
+				4B4513CF247B0A6D009EE471 /* AppUIKit */,
+				4B4513D0247B0A80009EE471 /* Validators */,
+				4B4513D1247B0A9E009EE471 /* Screens */,
 				4B3D5DDC246D8F2F00328B02 /* Main.storyboard */,
 				4B3D5DDF246D8F3200328B02 /* Assets.xcassets */,
 				4B3D5DE1246D8F3200328B02 /* LaunchScreen.storyboard */,
@@ -83,6 +86,44 @@
 				4BC1599C246D924900075952 /* TypesAndFunctions.swift */,
 			);
 			path = iOS_MVP;
+			sourceTree = "<group>";
+		};
+		4B4513CF247B0A6D009EE471 /* AppUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				4B4513C7247AF7AD009EE471 /* ValidatableTextField.swift */,
+				4B4513CB247AF9D6009EE471 /* LoginValidatableTextField.swift */,
+				4B4513CD247AFA06009EE471 /* PasswordValidatableTextField.swift */,
+				4B4513C9247AF885009EE471 /* ActionableButton.swift */,
+			);
+			path = AppUIKit;
+			sourceTree = "<group>";
+		};
+		4B4513D0247B0A80009EE471 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				4BC159A2246DB91A00075952 /* Validator.swift */,
+				4BC159A4246DBB0A00075952 /* LoginValidator.swift */,
+				4BC159A6246DBB1800075952 /* PasswordValidator.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		4B4513D1247B0A9E009EE471 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4B4513D2247B0AA5009EE471 /* Login */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		4B4513D2247B0AA5009EE471 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4B3D5DDA246D8F2F00328B02 /* LoginViewController.swift */,
+				4BC1599E246D945400075952 /* LoginPresenter.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,13 +199,16 @@
 			files = (
 				4BC1599F246D945400075952 /* LoginPresenter.swift in Sources */,
 				4BC1599D246D924900075952 /* TypesAndFunctions.swift in Sources */,
-				4BC159A1246DB81600075952 /* ValidatableField.swift in Sources */,
 				4BC159A9246DD19000075952 /* StorybookViewController.swift in Sources */,
 				4BC159A7246DBB1800075952 /* PasswordValidator.swift in Sources */,
+				4B4513CC247AF9D6009EE471 /* LoginValidatableTextField.swift in Sources */,
 				4B3D5DDB246D8F2F00328B02 /* LoginViewController.swift in Sources */,
 				4BC159A3246DB91A00075952 /* Validator.swift in Sources */,
 				4BC159A5246DBB0A00075952 /* LoginValidator.swift in Sources */,
+				4B4513CE247AFA06009EE471 /* PasswordValidatableTextField.swift in Sources */,
 				4B3D5DD7246D8F2F00328B02 /* AppDelegate.swift in Sources */,
+				4B4513CA247AF885009EE471 /* ActionableButton.swift in Sources */,
+				4B4513C8247AF7AD009EE471 /* ValidatableTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,48 +56,42 @@ class StorybookViewController: UITableViewController {
             switch indexPath.row {
             case 0: loginViewController.render(props: .init(login: .defaultValue,
                                                             password: .defaultValue,
-                                                            loginEnabled: true,
-                                                            loginAction: {}))
+                                                            action: .init(isEnabled: true, action: {})))
             case 1: loginViewController.render(props: .init(login: .init(error: .loginTooShort,
                                                                          text: "ab",
                                                                          startEditing: nil,
                                                                          changedEditing: nil,
                                                                          endEditing: nil),
                                                             password: .defaultValue,
-                                                            loginEnabled: false,
-                                                            loginAction: {}))
+                                                            action: .init(isEnabled: false, action: {})))
             case 2: loginViewController.render(props: .init(login: .init(error: .loginTooLong,
                                                                          text: "abcdefabcdefabcdefabcdef",
                                                                          startEditing: nil,
                                                                          changedEditing: nil,
                                                                          endEditing: nil),
                                                             password: .defaultValue,
-                                                            loginEnabled: false,
-                                                            loginAction: {}))
+                                                            action: .init(isEnabled: false, action: {})))
             case 3: loginViewController.render(props: .init(login: .init(error: .loginNonAscii,
                                                                          text: "вітаю",
                                                                          startEditing: nil,
                                                                          changedEditing: nil,
                                                                          endEditing: nil),
                                                             password: .defaultValue,
-                                                            loginEnabled: false,
-                                                            loginAction: {}))
+                                                            action: .init(isEnabled: false, action: {})))
             case 4: loginViewController.render(props: .init(login: .defaultValue,
                                                             password: .init(error: .passwordTooShort,
                                                                             text: "abc",
                                                                             startEditing: nil,
                                                                             changedEditing: nil,
                                                                             endEditing: nil),
-                                                            loginEnabled: false,
-                                                            loginAction: {}))
+                                                            action: .init(isEnabled: false, action: {})))
             case 5: loginViewController.render(props: .init(login: .defaultValue,
                                                             password: .init(error: .passwordShouldContainSpecialCharactes,
                                                                             text: "abc",
                                                                             startEditing: nil,
                                                                             changedEditing: nil,
                                                                             endEditing: nil),
-                                                            loginEnabled: false,
-                                                            loginAction: {}))
+                                                            action: .init(isEnabled: false, action: {})))
             default: break
             }
             navigationController?.pushViewController(loginViewController, animated: true)
